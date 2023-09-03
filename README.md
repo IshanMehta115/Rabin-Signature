@@ -125,7 +125,8 @@ It is assumed that any adversary with high probability to forge the Rabin Signat
 
 This means $n \mid\left(y_{1}^{2}-y_{2}^{2}\right)$ as $y_{1}^{2} \equiv y_{2}^{2}(\bmod n)$
 
-But $n$ does not divide $y_{1}-y_{2}$ or $y_{1}+y_{2}$ as $y_{1} \pm y_{2} \neq 0(\bmod n)$ This means $\operatorname{gcd}\left(y_{1} \pm y_{2}, n\right)$ is a factor of $\mathrm{n}$ other than 1 and $\mathrm{n}$.
+But $n$ does not divide $y_{1}-y_{2}$ or $y_{1}+y_{2}$ as $y_{1} \pm y_{2} \neq 0(\bmod n)$ <br>
+This means $\gcd\left(y_{1} \pm y_{2}, n\right)$ is a factor of $\mathrm{n}$ other than 1 and $\mathrm{n}$.
 
 So, if some adversary A can forge Rabin signature, then A can also factor large number $n$. Factorization is assumed to be very difficult. The security of Rabin Signature depends on this fact.
 
@@ -140,13 +141,13 @@ So, if some adversary A can forge Rabin signature, then A can also factor large 
 
 ## 9. Modified Miller-rabin test
 
-## 10. Part 1: Check divisibility by small primes
+## a. Part 1: Check divisibility by small primes
 
 We check if the input odd integer is divisible by any of the precomputed primes. If it is divisible by any of the primes then we are sure that this number is not prime and we return False.
 
 Otherwise we apply the second part (Miller-rabin test) to this integer.
 
-## 11. Part 2: Miller rabin test
+## b. Part 2: Miller rabin test
 
 Input odd integer is $p$
 
@@ -160,7 +161,7 @@ Then $\mathrm{p}$ is probable prime with base a if any of the following congruen
 
 $a^{m} \equiv 1 \bmod p$
 
-$a^{2^{i} m} \equiv-1 \bmod p, 0 \leq i<k$
+$a^{2^{i} m} \equiv-1 \bmod p, 0 \leq i < k$
 
 The logic of this test can be proved using two key facts
 
