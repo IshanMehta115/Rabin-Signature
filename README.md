@@ -48,7 +48,11 @@ $\LARGE \Rightarrow y^{2} \equiv x^{\frac{p-1}{2}} \cdot x(\bmod p)$
 
 $\LARGE \Rightarrow y^{2} \equiv x(\bmod p) \quad$ by Euler's Criterion.
 
-Case 2: $\LARGE p \equiv 1(\bmod 4)$ In this case we can use complicated probabilistic algorithm like Berlekamp's root finding algorithm.
+<br>
+
+Case 2: &emsp; $\LARGE p \equiv 1(\bmod 4)$
+<br>
+In this case we can use complicated probabilistic algorithm like Berlekamp's root finding algorithm.
 
 ## 5. Algorithm to create the signature
 
@@ -130,7 +134,7 @@ This means $\LARGE \gcd\left(y_{1} \pm y_{2}, n\right)$ is a factor of $\mathrm{
 
 So, if some adversary A can forge Rabin signature, then A can also factor large number $n$. Factorization is assumed to be very difficult. The security of Rabin Signature depends on this fact.
 
-## 8. Prime Number Generation
+## 8. Large Prime Number Generation
 
 - We first calculate all prime numbers till $10^{7}$.
 - Then we find random odd integers of 1024 bits. Such that their most significant bit (MSB) is 1 . This is to make sure that the integers generated in this manner are large.
