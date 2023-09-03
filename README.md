@@ -68,32 +68,32 @@ Now we want to find the values of $x$ which satisfy the following congruence -
 
 $$
 \begin{aligned}
-& x *(x+b) \equiv c(\bmod n) \\
-& \Rightarrow x^{2}+b x \equiv c(\bmod n)
+&\LARGE x *(x+b) \equiv c(\bmod n) \\
+&\LARGE \Rightarrow x^{2}+b x \equiv c(\bmod n)
 \end{aligned}
 $$
 
-Now let $d \equiv b \cdot 2^{-1}(\bmod n)$, replace b by $2 \mathrm{~d}$ and add $d^{2}$ on both sides. The congruence becomes,
+Now let $\LARGE d \equiv b \cdot 2^{-1}(\bmod n)$, replace b by $\LARGE 2 \mathrm{~d}$ and add $d^{2}$ on both sides. The congruence becomes,
 
 $$
 \begin{gathered}
-x^{2}+2 d x+d^{2} \equiv c+d^{2}(\bmod n) \\
-\Rightarrow(\mathrm{x}+\mathrm{d})^{2} \equiv c+d^{2}(\bmod n)
+\LARGE x^{2}+2 d x+d^{2} \equiv c+d^{2}(\bmod n) \\
+\LARGE \Rightarrow(\mathrm{x}+\mathrm{d})^{2} \equiv c+d^{2}(\bmod n)
 \end{gathered}
 $$
 
-Now let $y=(x+d)$ and $m=c+d^{2}$. The equation becomes,
+Now let $\LARGE y=(x+d)$ and $\LARGE m=c+d^{2}$. The equation becomes,
 
 $$
-y^{2} \equiv m(\bmod n)
+\LARGE y^{2} \equiv m(\bmod n)
 $$
 
 But $n=p^{*} q$, both $p$ and $q$ are coprime. So, we can break the above equation into 2 parts -
 
 $$
 \begin{aligned}
-& y^{2} \equiv m(\bmod p) \\
-& y^{2} \equiv m(\bmod q)
+& \LARGE y^{2} \equiv m(\bmod p) \\
+& \LARGE y^{2} \equiv m(\bmod q)
 \end{aligned}
 $$
 
@@ -105,28 +105,28 @@ The expected value of doing this is 4 .
 
 After that we can find the solution for $y$ using Chinese remainder theorem. Once we have ' $y$ ' we can find ' $x$ '.
 
-The signature is then the pair $(U, x)$
+The signature is then the pair $\LARGE (U, x)$
 
 ## 6. Verify algorithm
 
 To verify whether a message $M$ is authentic. We can check if its signature is correct. To do that,
 
-find $c=H(M+U)$ and $x *(x+b)$ And then return 1 (i.e., message is authentic) if and only if
+find $\LARGE c=H(M+U)$ and $\LARGE x *(x+b)$ And then return 1 (i.e., message is authentic) if and only if
 
 $$
-x *(x+b) \equiv c(\bmod n)
+\LARGE x *(x+b) \equiv c(\bmod n)
 $$
 
 Else return 0 (i.e., message is not authentic)
 
 ## 7. Security
 
-It is assumed that any adversary with high probability to forge the Rabin Signature can also with high probability find two values $y_{1}$ and $y_{2}$ such that $\left.y_{1}^{2} \equiv y_{2}^{2} \equiv \bmod n\right)$ and $y_{1} \pm y_{2} \neq 0(\bmod n)$
+It is assumed that any adversary with high probability to forge the Rabin Signature can also with high probability find two values $y_{1}$ and $y_{2}$ such that $\LARGE \left.y_{1}^{2} \equiv y_{2}^{2} \equiv \bmod n\right)$ and $y_{1} \pm y_{2} \neq 0(\bmod n)$
 
-This means $n \mid\left(y_{1}^{2}-y_{2}^{2}\right)$ as $y_{1}^{2} \equiv y_{2}^{2}(\bmod n)$
+This means $\LARGE n \mid\left(y_{1}^{2}-y_{2}^{2}\right)$ as $y_{1}^{2} \equiv y_{2}^{2}(\bmod n)$
 
-But $n$ does not divide $y_{1}-y_{2}$ or $y_{1}+y_{2}$ as $y_{1} \pm y_{2} \neq 0(\bmod n)$ <br>
-This means $\gcd\left(y_{1} \pm y_{2}, n\right)$ is a factor of $\mathrm{n}$ other than 1 and $\mathrm{n}$.
+But $n$ does not divide $\LARGE y_{1}-y_{2}$ or $\LARGE y_{1}+y_{2}$ as $\LARGE y_{1} \pm y_{2} \neq 0(\bmod n)$ <br>
+This means $\LARGE \gcd\left(y_{1} \pm y_{2}, n\right)$ is a factor of $\mathrm{n}$ other than 1 and $\mathrm{n}$.
 
 So, if some adversary A can forge Rabin signature, then A can also factor large number $n$. Factorization is assumed to be very difficult. The security of Rabin Signature depends on this fact.
 
@@ -141,34 +141,34 @@ So, if some adversary A can forge Rabin signature, then A can also factor large 
 
 ## 9. Modified Miller-rabin test
 
-## a. Part 1: Check divisibility by small primes
+### a. Part 1: Check divisibility by small primes
 
 We check if the input odd integer is divisible by any of the precomputed primes. If it is divisible by any of the primes then we are sure that this number is not prime and we return False.
 
 Otherwise we apply the second part (Miller-rabin test) to this integer.
 
-## b. Part 2: Miller rabin test
+### b. Part 2: Miller rabin test
 
 Input odd integer is $p$
 
-We write $(p-1)=2^{k} * m$, where $\mathrm{m}$ is odd. We then find random integers a $(2 \leq a \leq p-2)$. And then check if $a$ is a 'witness' that $p$ is not prime or not. We do this for about 50 witnesses. Each test returns True with $3 / 4$ probability.
+We write $\LARGE (p-1)=2^{k} * m$, where $\mathrm{m}$ is odd. We then find random integers a $\LARGE (2 \leq a \leq p-2)$. And then check if $a$ is a 'witness' that $p$ is not prime or not. We do this for about 50 witnesses. Each test returns True with $3 / 4$ probability.
 
 We find values
 
-$a^{m} \bmod p, a^{2 m} \bmod p, a^{4 m} \bmod p \ldots a^{\left(2^{k}-1\right) * m} \bmod p$
+$\LARGE a^{m} \bmod p, a^{2 m} \bmod p, a^{4 m} \bmod p \ldots a^{\left(2^{k}-1\right) * m} \bmod p$
 
 Then $\mathrm{p}$ is probable prime with base a if any of the following congruence holds.
 
-$a^{m} \equiv 1 \bmod p$
+$\LARGE a^{m} \equiv 1 \bmod p$
 
-$a^{2^{i} m} \equiv-1 \bmod p, 0 \leq i < k$
+$\LARGE a^{2^{i} m} \equiv-1 \bmod p, 0 \leq i < k$
 
 The logic of this test can be proved using two key facts
 
-- Fermat's theorem $\rightarrow a^{\left(2^{k}\right) * m} \equiv a^{p-1} \equiv 1(\bmod p)$, if $\mathrm{p}$ is prime
+- Fermat's theorem $\LARGE \rightarrow a^{\left(2^{k}\right) * m} \equiv a^{p-1} \equiv 1(\bmod p)$, if $\mathrm{p}$ is prime
 - Only square roots of $1 \bmod p$ are 1 and -1 .
 
-We can say that $a^{\left(2^{k}\right) * m} \equiv 1(\bmod p)$, this means $a^{\left(2^{k-1}\right) * m} \equiv$ $1(\bmod p)$ or $a^{\left(2^{k-1}\right) * m} \equiv-1(\bmod p)$. But if $a^{\left(2^{k-1}\right) * m} \equiv$ $-1(\bmod p)$, then we would have returned that $p$ is prime. This means $a^{\left(2^{k-1}\right) * m} \equiv 1(\bmod p)$. And we keep doing this till we reach $a^{m}$. This means if $\mathrm{p}$ is prime then we will never state it as a composite.
+We can say that $\LARGE a^{\left(2^{k}\right) * m} \equiv 1(\bmod p)$, this means $\LARGE a^{\left(2^{k-1}\right) * m} \equiv$ $1(\bmod p)$ or $\LARGE a^{\left(2^{k-1}\right) * m} \equiv-1(\bmod p)$. But if $\LARGE a^{\left(2^{k-1}\right) * m} \equiv$ $-1(\bmod p)$, then we would have returned that $p$ is prime. This means $\LARGE a^{\left(2^{k-1}\right) * m} \equiv 1(\bmod p)$. And we keep doing this till we reach $a^{m}$. This means if $\mathrm{p}$ is prime then we will never state it as a composite.
 
 
 
