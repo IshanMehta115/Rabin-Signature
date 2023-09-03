@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This project was the final course project for the Applied Cryptography course offered by [Indraprastha Institute of Information Technology, Delhi](https://www.iiitd.ac.in/) during the winter semester of 2022. <br>
+This project was the final course project for the Applied Cryptography course offered by [Indraprastha Institute of Information Technology, Delhi](https://www.iiitd.ac.in/) during the monsoon semester of 2022. <br>
 Rabin Signature scheme was one of the first methods of digital signature proposed by Michael O. Rabin in 1979. The difficulty to forge this signature is expressed in terms of the difficulty to factorize a large number. 
 
 
